@@ -1,3 +1,4 @@
+import "./Video.css";
 import React from "react";
 
 class Video extends React.Component {
@@ -6,12 +7,30 @@ class Video extends React.Component {
       id: { videoId },
       snippet: {
         title,
-        thumbnails: { default: defaultThumbnail }
+        thumbnails: { medium: mediumThumbnail, default: defaultThumbnail }
       }
     } = this.props.video;
     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-    console.log({ videoId, title, defaultThumbnail, embedUrl });
-    return <div>video</div>;
+
+    return (
+      <div
+        className="video item"
+        onClick={() => this.props.onVideoSelect(embedUrl)}
+      >
+        <img
+          alt={title}
+          className="ui image"
+          src={
+            this.props.view === "horizontal"
+              ? mediumThumbnail.url
+              : defaultThumbnail.url
+          }
+        />
+        <div className="content">
+          <div className="header">{title}</div>
+        </div>
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,29 @@
+/*
+  Horizontal view
+*/
+.ui.horizontal.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.horizontal .video.item {
+  display: flex !important;
+  align-items: center;
+  width: 23%;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.horizontal .video.item .content {
+  margin: 10px 0;
+}
+
+/*
+  List View
+*/
+
+.video-list.ui.relaxed.divided.list .video {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
+}
