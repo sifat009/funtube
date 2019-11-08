@@ -21,11 +21,11 @@ class SearchBar extends React.Component {
       <div className="ui segment" style={{ marginTop: "10px" }}>
         <form className="ui form" onSubmit={e => this.onSearchSubmit(e)}>
           <input
+            autoFocus
             value={this.state.inputValue}
             type="text"
             placeholder={this.props.placeholder}
             onChange={e => this.onInputChange(e)}
-            autoFocus={true}
           />
         </form>
       </div>

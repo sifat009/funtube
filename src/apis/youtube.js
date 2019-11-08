@@ -6,7 +6,7 @@ const youtubeSearch = async searchTerm => {
     type: "video",
     q: searchTerm,
     order: "viewCount",
-    maxResults: 10,
+    maxResults: 12,
     key: KEY
   };
   const urlParams = new URLSearchParams(params).toString();

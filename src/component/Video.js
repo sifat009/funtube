@@ -15,8 +15,7 @@ class Video extends React.Component {
     return (
       <div
         className="video item"
-        onClick={() => this.props.onVideoSelect(embedUrl)}
-      >
+        onClick={() => this.props.onVideoSelect(embedUrl, title)}>
         <img
           alt={title}
           className="ui image"

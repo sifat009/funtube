@@ -19,11 +19,21 @@
 }
 
 /*
-  List View
+  List View (iframe-view)
 */
 
 .video-list.ui.relaxed.divided.list .video {
   display: flex !important;
   align-items: center !important;
   cursor: pointer;
+}
+.video-list.ui.relaxed.divided.list {
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+.ui.embed ~ div.content {
+  padding: 25px 15px;
+  font-size: 18px;
+  font-weight: 400;
+  background: #f9f9f9;
 }

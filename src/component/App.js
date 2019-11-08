@@ -7,8 +7,21 @@ class App extends React.Component {
   state = {
     videoList: [],
     view: "horizontal",
-    embedVideUrl: ""
+    embedVideUrl: "",
+    selectedVideoTitle: ""
   };
+
+  async componentDidMount() {
+    try {
+      const items = await youtubeSearch("pokemon");
+      this.setState({
+        videoList: items,
+        view: "horizontal"
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   onSearchSubmit = async searchText => {
     try {
@@ -22,10 +35,11 @@ class App extends React.Component {
     }
   };
 
-  onVideoSelect = embedVideUrl => {
+  onVideoSelect = (embedVideUrl, title) => {
     this.setState({
       view: "",
-      embedVideUrl
+      embedVideUrl,
+      selectedVideoTitle: title
     });
   };
 
@@ -45,6 +59,9 @@ class App extends React.Component {
               <div className="eleven wide column">
                 <div className="ui embed">
                   <iframe title="title" src={this.state.embedVideUrl} />
+                </div>
+                <div className="content">
+                  <div className="header">{this.state.selectedVideoTitle}</div>
                 </div>
               </div>
             ) : (
